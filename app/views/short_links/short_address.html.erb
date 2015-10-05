@@ -1,0 +1,20 @@
+<table border="1">
+    <tr>
+        <td>Ip Address</td>
+        <td>No.of Clicks</td>
+        <td>Last Accessed</td>
+    </tr>
+    <tbody id="result">
+        <% @statistics.each do |stat| %>
+          <tr>
+              <td><%= stat.ip_address%></td>
+              <td><%= stat.no_of_clicks%></td>
+              <td><%= stat.updated_at.strftime('%B %d, %Y')%></td>
+          </tr>
+        <% end %>
+    </tbody>
+
+</table>
+
+<%= link_to 'Back', short_links_path %>
+

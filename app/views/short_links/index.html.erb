@@ -1,0 +1,24 @@
+<div class="title">
+    <h1>Links</h1>
+</div>
+<div id="shorten_link">
+    <%= render 'form' %>
+</div>
+<table border="1">
+    <tr>
+        <td>Original URL </td>
+        <td>Short URL</td>
+        <td>No.of Clicks</td>
+    </tr>
+    <tbody id="result">
+        <% @top_short_links.each do |link| %>
+          <tr>
+              <td><%= truncate(link.base_url, length: 60)%></td>
+              <td><%= link_to truncate(link.short_url, length: 60), link.short_url,target: "_blank" %></td>
+              <td><%= link_to link.no_of_clicks, short_address_short_link_path(link) %></td>
+          </tr>
+        <% end %>
+    </tbody>
+
+</table>
+
