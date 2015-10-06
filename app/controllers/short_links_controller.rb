@@ -6,6 +6,8 @@ class ShortLinksController < ApplicationController
   def index
     @short_link = ShortLink.new
     @top_short_links = ShortLink.order(updated_at: :desc)
+    @original_url = request.original_url
+    
   end
 
   # GET /short_links/1
